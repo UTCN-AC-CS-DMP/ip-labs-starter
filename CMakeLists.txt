@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24 FATAL_ERROR)
-project(ip_from_scratch_cpp_23_cuda
+project(ip_labs_cpp_23
         VERSION 1.0
         LANGUAGES CXX)
 
