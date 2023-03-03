@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.24 FATAL_ERROR)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -target x86_64-w64-mingw32")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -target x86_64-w64-mingw32")
 project(ip_labs_cpp_23
         VERSION 1.0
         LANGUAGES CXX)
@@ -23,13 +25,15 @@ message(STATUS "OpenCV version: ${OpenCV_VERSION}")
 
 add_definitions(-DASSETS_DIR="${CMAKE_SOURCE_DIR}/assets/")
 
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/include/nfde)
+
 add_executable(${PROJECT_NAME}
-        src/file-util.cpp
-        src/image-util.cpp
-        src/lab.cpp
-        src/lab1.cpp
+        # src/file-util.cpp
+        # src/image-util.cpp
+        # src/lab.cpp
+        # src/lab1.cpp
         src/main.cpp)
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/include)
 
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} nfd)
